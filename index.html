@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backbonejs</title>
+</head>
+
+<body>
+    <div class="container"><h2>Application</h2>
+
+        <div class="row pt-3 pb-3">
+            <div class="col-sm-3">Name <input class="form-control name-input"></div>
+            <div class="col-sm-3">Age <input class="form-control age-input"></div>
+            <div class="col-sm-3">Mobile No. <input class="form-control mobile-input"></div>
+            <div class="col-sm-3">Email <input class="form-control email-input"></div>
+        </div>
+        <div><button class="btn btn-primary add-list">Add</button></div>
+
+        <table class="table">
+            <thead>
+                <tr class="row">
+                    <th class="col-sm-3">Name</th>
+                    <th class="col-sm-3">Age</th>
+                    <th class="col-sm-3">Mobile no.</th>
+                    <th class="col-sm-3">Email</th>
+                </tr>
+            </thead>
+            <tbody class="blogs-list"></tbody>
+        </table>
+        <script type="text/template" id="blogs-list-template">
+            <tr class="row">
+                <td class="col-sm-3">
+                    <%= name %>
+                </td>
+                <td class="col-sm-3">
+                    <%= age %>
+                </td>
+                <td class="col-sm-3">
+                    <%= mobile %>
+                </td>
+                <td class="col-sm-3">
+                    <%= email %>
+                </td>
+            </tr>
+    </script>
+
+        <script src="node_modules/jquery/dist/jquery.js"></script>
+        <script src="node_modules/underscore/underscore.js"></script>
+        <script src="node_modules/backbone/backbone.js"></script>
+        <script src="index.js"></script>
+</body>
+
+</html>
