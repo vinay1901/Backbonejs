@@ -3,7 +3,8 @@ var List = Backbone.Model.extend({
         name: '',
         age: '',
         mobile: '',
-        email: ''
+        email: '',
+        likes: 0
     }
 });
 
@@ -19,11 +20,22 @@ var ListView = Backbone.View.extend({
     tagName: 'tr',
     initialize: function () {
         this.template = _.template($('#blogs-list-template').html())
-        console.log('aaaa',this)
+        _.bindAll(this, 'render', 'like')
+        this.model.bind('change', this.render);
+        this.render();
     },
     render: function () {
         this.$el.html(this.template(this.model.toJSON()));
         return this;
+    },
+    events: {
+        'click .like-btn': 'like'
+    },
+    like: function (e) {
+        this.model.set({
+            likes: this.model.get('likes') + 1
+        });
+
     }
 
 });
@@ -34,18 +46,32 @@ var viewLists = Backbone.View.extend({
     initialize: function () {
         this.model.on('add', this.render, this);
     },
+
     render: function () {
         var self = this;
-        console.log('bbbbb')
         this.$el.html('');
-        _.each(this.model.toArray(), function (List) {
+        _.each(this.model.toArray(), function (List, i) {
             self.$el.append((new ListView({ model: List })).render().$el);
         });
         return this;
     }
 });
 
+// var viewBlock = Backbone.View.extend({
+//     el: $('.view-block'),
+//     render: function () {
+//         this.$el.html('display');
+//         // // _.each(this.model.toArray(), function (List) {
+//         //     self.$el.append((new ListView({ model: List })).render().$el);
+//         // // });
+//         // return this;
+//     }
+// });
+
 var ViewLists = new viewLists();
+
+// var ViewBlock = new viewBlock();
+// ViewBlock.render();
 
 $(document).ready(function () {
     $('.add-list').on('click', function () {
@@ -55,7 +81,6 @@ $(document).ready(function () {
             mobile: $('.mobile-input').val(),
             email: $('.email-input').val()
         });
-        console.log(list)
         $('.name-input').val('');
         $('.age-input').val('');
         $('.mobile-input').val('');

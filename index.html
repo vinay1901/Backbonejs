@@ -24,9 +24,10 @@
             <thead>
                 <tr class="row">
                     <th class="col-sm-3">Name</th>
-                    <th class="col-sm-3">Age</th>
-                    <th class="col-sm-3">Mobile no.</th>
+                    <th class="col-sm-2">Age</th>
+                    <th class="col-sm-2">Mobile no.</th>
                     <th class="col-sm-3">Email</th>
+                    <th class="col-sm-2">Action</th>
                 </tr>
             </thead>
             <tbody class="blogs-list"></tbody>
@@ -36,17 +37,23 @@
                 <td class="col-sm-3">
                     <%= name %>
                 </td>
-                <td class="col-sm-3">
+                <td class="col-sm-2">
                     <%= age %>
                 </td>
-                <td class="col-sm-3">
+                <td class="col-sm-2">
                     <%= mobile %>
                 </td>
                 <td class="col-sm-3">
                     <%= email %>
                 </td>
+                <td class="col-sm-2 post">
+                    <%= likes %>  <button class='btn btn-primary like-btn'>Like</button>
+                </td>
+
             </tr>
     </script>
+
+    <div class="view-block"></div>
 
         <script src="node_modules/jquery/dist/jquery.js"></script>
         <script src="node_modules/underscore/underscore.js"></script>
