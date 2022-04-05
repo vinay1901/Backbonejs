@@ -19,15 +19,16 @@
             <div class="col-sm-3">Email <input class="form-control email-input"></div>
         </div>
         <div><button class="btn btn-primary add-list">Add</button></div>
+        <div><button class="btn btn-primary update-list" style="display: none">Update</button></div>
 
         <table class="table">
             <thead>
                 <tr class="row">
                     <th class="col-sm-3">Name</th>
-                    <th class="col-sm-2">Age</th>
+                    <th class="col-sm-1">Age</th>
                     <th class="col-sm-2">Mobile no.</th>
                     <th class="col-sm-3">Email</th>
-                    <th class="col-sm-2">Action</th>
+                    <th class="col-sm-3">Action</th>
                 </tr>
             </thead>
             <tbody class="blogs-list"></tbody>
@@ -37,7 +38,7 @@
                 <td class="col-sm-3">
                     <%= name %>
                 </td>
-                <td class="col-sm-2">
+                <td class="col-sm-1">
                     <%= age %>
                 </td>
                 <td class="col-sm-2">
@@ -46,8 +47,8 @@
                 <td class="col-sm-3">
                     <%= email %>
                 </td>
-                <td class="col-sm-2 post">
-                    <%= likes %>  <button class='btn btn-primary like-btn'>Like</button>
+                <td class="col-sm-3 post">
+                    <%= likes %>  <button class='btn btn-primary like-btn'>Like</button> <button class='btn btn-primary edit-btn'>Edit</button> <button class='btn btn-primary delete-btn'>Delete</button>
                 </td>
 
             </tr>
